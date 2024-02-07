@@ -1,9 +1,12 @@
 package dev.masterpin.movies;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 //in here come the db access methods
 public class MovieService {
@@ -11,6 +14,10 @@ public class MovieService {
     private MovieRepository movieRepository;
     public List<Movie> allMovies(){
         return movieRepository.findAll();
+    }
+//Optional<Movie> says that it could be null as well (error handling)
+    public Optional<Movie> getMovieById(String imdbId){
+        return movieRepository.findMovieByImdbId(imdbId);
     }
 
 }
