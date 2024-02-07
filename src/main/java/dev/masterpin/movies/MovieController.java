@@ -1,6 +1,6 @@
 package dev.masterpin.movies;
 
-import org.bson.types.ObjectId;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +24,6 @@ public class MovieController {
 
     @GetMapping("/{imdbId}")
     public ResponseEntity<Optional<Movie>> getMovieById(@PathVariable String imdbId){
-        return new ResponseEntity<Optional<Movie>>(movieService.getMovieById(imdbId),HttpStatus.OK);
+        return new ResponseEntity<>(movieService.getMovieById(imdbId),HttpStatus.OK);
     }
 }
